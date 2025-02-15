@@ -5,6 +5,21 @@ steps:
 # Docker Push
 - name: 'gcr.io/cloud-builders/docker'
   args: ["push", "us-central1-docker.pkg.dev/chrome-sum-415007/demopipeline/demopipeline:$SHORT_SHA"]
+
+
+  # create cloud deploy pipeline 
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args:
+    - '-c'
+    - |
+      if ! gcloud deploy delivery-pipelines describe demopipeline --region=us-central1 &> /dev/null; then
+        echo "Creating Cloud Deploy pipeline..."
+        gcloud deploy apply --file=deploy.yaml --region=us-central1 --project=$PROJECT_ID
+      else
+        echo "Cloud Deploy pipeline already exists."
+      fi
+
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args:
