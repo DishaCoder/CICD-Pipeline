@@ -1,7 +1,7 @@
 apiVersion: skaffold/v2beta16
 kind: Config
 metadata:
-  name: web-app
+  name: demopipeline
 build:
   artifacts:
   - image: sample-app

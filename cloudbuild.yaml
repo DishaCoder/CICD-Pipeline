@@ -14,6 +14,6 @@ steps:
     --delivery-pipeline=demopipeline
     --region=us-central1
     --source=./
-    --images=sample-app=us-cus-central1-docker.pkg.dev/chrome-sum-415007/demopipeline/demopipeline:$SHORT_SHA
+    --images=sample-app=us-central1-docker.pkg.dev/chrome-sum-415007/demopipeline/demopipeline:$SHORT_SHA
 options:
   logging: CLOUD_LOGGING_ONLY
