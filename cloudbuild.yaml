@@ -15,7 +15,7 @@ steps:
     - |
       if ! gcloud deploy delivery-pipelines describe demopipeline --region=us-central1 &> /dev/null; then
         echo "Creating Cloud Deploy pipeline..."
-        gcloud deploy apply --file=deploy.yaml --region=us-central1 --project=$PROJECT_ID
+        gcloud deploy apply --file=clouddeploy.yaml --region=us-central1 --project=$PROJECT_ID
       else
         echo "Cloud Deploy pipeline already exists."
       fi
