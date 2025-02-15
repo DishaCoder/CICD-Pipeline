@@ -1,8 +1,8 @@
 apiVersion: deploy.cloud.google.com/v1beta1
 kind: DeliveryPipeline
 metadata:
- name: new-cicd-demo-app
-description: cicd-demo application 
+ name: demopipeline
+description: demopipeline application 
 serialPipeline:
  stages:
  - targetId: staging
